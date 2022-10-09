@@ -1,13 +1,18 @@
 package racingcar.domain;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class RacingCars {
 
-    private final List<Car> racingCars;
+    private final Map<Car, DriveRecord> carRecord;
 
     private RacingCars(List<Car> cars) {
-        this.racingCars = cars;
+        carRecord = new HashMap<>();
+        for (Car car : cars) {
+            carRecord.put(car, new DriveRecord());
+        }
     }
 
     public static RacingCars of(List<Car> cars) {
@@ -15,6 +20,6 @@ public class RacingCars {
     }
 
     public Integer getCarCount() {
-        return racingCars.size();
+        return this.carRecord.size();
     }
 }
