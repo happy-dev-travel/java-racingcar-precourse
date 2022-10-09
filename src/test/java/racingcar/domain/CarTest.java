@@ -26,7 +26,7 @@ class CarTest {
     }
 
     @Test
-    @DisplayName("Car는 이름을 가질 수 있음")
+    @DisplayName("Car 는 이름을 가질 수 있음")
     void name() {
         Car car = Car.of("차이름");
 
@@ -35,7 +35,7 @@ class CarTest {
 
     @ParameterizedTest
     @ValueSource(ints = {4, 9})
-    @DisplayName("accel이 4가 발생하면 Car는 FORWARD를 반환홤")
+    @DisplayName("accel 이 4가 발생하면 Car는 FORWARD를 반환홤")
     void test1(int accel) {
         try (MockedStatic<Randoms> random = mockStatic(Randoms.class)) {
             given(Randoms.pickNumberInRange(AccelRange.MIN_ACCEL_VALUE, AccelRange.MAX_ACCEL_VALUE)).willReturn(accel);
