@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.EnabledIf;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.MockedStatic;
@@ -21,7 +22,15 @@ class CarTest {
 
     @BeforeEach
     void setUp() {
-        car = new Car(new Engine());
+        car = Car.of("test");
+    }
+
+    @Test
+    @DisplayName("Car는 이름을 가질 수 있음")
+    void name() {
+        Car car = Car.of("차이름");
+
+        assertThat(car.getCarName()).isEqualTo("차이름");
     }
 
     @ParameterizedTest
