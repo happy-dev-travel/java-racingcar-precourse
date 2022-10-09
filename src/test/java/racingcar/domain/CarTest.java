@@ -25,14 +25,6 @@ class CarTest {
         car = Car.of("test");
     }
 
-    @Test
-    @DisplayName("Car 는 이름을 가질 수 있음")
-    void name() {
-        Car car = Car.of("차이름");
-
-        assertThat(car.getCarName()).isEqualTo("차이름");
-    }
-
     @ParameterizedTest
     @ValueSource(ints = {4, 9})
     @DisplayName("accel 이 4가 발생하면 Car는 FORWARD를 반환홤")

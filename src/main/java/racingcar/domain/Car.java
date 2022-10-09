@@ -22,7 +22,7 @@ public class Car {
         return this.engine.accel(value);
     }
 
-    public String getCarName() {
-        return this.carName.toString();
+    public CarName getCarName() {
+        return this.carName;
     }
 }
