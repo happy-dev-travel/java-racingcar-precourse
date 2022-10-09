@@ -8,6 +8,10 @@ public class PositiveNumber {
         this.number = number;
     }
 
+    public static PositiveNumber of(int number) {
+        return new PositiveNumber(number);
+    }
+
     private void validate(int number) {
         if (number < 0) {
             throw new IllegalArgumentException();

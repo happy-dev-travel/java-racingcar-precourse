@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.common.PositiveNumber;
 import racingcar.constant.Move;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -16,7 +17,7 @@ class DriveRecordTest {
         driveRecord.record(Move.FORWARD);
         driveRecord.record(Move.STOP);
 
-        assertThat(driveRecord.isAt(CarPosition.of(1))).isTrue();
+        assertThat(driveRecord.isAt(PositiveNumber.of(1))).isTrue();
     }
 
     @Test
@@ -26,6 +27,6 @@ class DriveRecordTest {
 
         driveRecord.record(Move.FORWARD);
 
-        assertThat(driveRecord.isAt(CarPosition.of(1))).isTrue();
+        assertThat(driveRecord.isAt(PositiveNumber.of(1))).isTrue();
     }
 }

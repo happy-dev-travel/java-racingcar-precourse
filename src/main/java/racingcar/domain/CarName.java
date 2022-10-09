@@ -13,6 +13,10 @@ public class CarName {
         this.carName = carName;
     }
 
+    public static CarName of(String name) {
+        return new CarName(name);
+    }
+
     private void validate(String carName) {
         isBlank(carName);
         isOverMaxLength(carName);
@@ -33,5 +37,9 @@ public class CarName {
     @Override
     public String toString() {
         return this.carName;
+    }
+
+    public boolean isSame(CarName car1) {
+        return this.carName.equals(car1.toString());
     }
 }
