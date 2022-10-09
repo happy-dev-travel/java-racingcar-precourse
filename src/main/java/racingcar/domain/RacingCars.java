@@ -11,7 +11,7 @@ public class RacingCars {
     private RacingCars(List<Car> cars) {
         carRecord = new HashMap<>();
         for (Car car : cars) {
-            carRecord.put(car, new DriveRecord());
+            carRecord.put(car, new DriveRecord(car.getCarName()));
         }
     }
 
@@ -21,5 +21,17 @@ public class RacingCars {
 
     public Integer getCarCount() {
         return this.carRecord.size();
+    }
+
+    public void raceOneTime() {
+        for (Map.Entry<Car, DriveRecord> entry : carRecord.entrySet()) {
+            Car car = entry.getKey();
+            DriveRecord driveRecord = entry.getValue();
+            driveRecord.record(car.drive());
+        }
+    }
+
+    public RaceResult getDriveRecords() {
+        return new RaceResult(this.carRecord.values());
     }
 }
