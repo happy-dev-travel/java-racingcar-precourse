@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import racingcar.common.NaturalNumber;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -20,8 +22,8 @@ public class RacingCars {
         return new RacingCars(cars);
     }
 
-    public Integer getCarCount() {
-        return this.carRecord.size();
+    public NaturalNumber getCarCount() {
+        return NaturalNumber.of(this.carRecord.size());
     }
 
     public void raceOneTime() {
