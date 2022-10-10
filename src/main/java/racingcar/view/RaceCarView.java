@@ -3,19 +3,19 @@ package racingcar.view;
 import racingcar.common.NaturalNumber;
 import racingcar.common.UserString;
 
-public class RacingCarView {
+public class RaceCarView {
 
     private static final String raceMark = "-";
     private final UserString name;
     private final NaturalNumber position;
 
-    private RacingCarView(UserString name, NaturalNumber position) {
+    private RaceCarView(UserString name, NaturalNumber position) {
         this.name = name;
         this.position = position;
     }
 
-    public static RacingCarView of(UserString name, NaturalNumber position) {
-        return new RacingCarView(name, position);
+    public static RaceCarView of(UserString name, NaturalNumber position) {
+        return new RaceCarView(name, position);
     }
 
     @Override

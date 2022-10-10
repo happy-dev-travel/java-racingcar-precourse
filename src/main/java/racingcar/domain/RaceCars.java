@@ -7,19 +7,19 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class RacingCars {
+public class RaceCars {
 
     private final Map<Car, DriveRecord> carRecord;
 
-    private RacingCars(List<Car> cars) {
+    private RaceCars(List<Car> cars) {
         carRecord = new HashMap<>();
         for (Car car : cars) {
             carRecord.put(car, new DriveRecord(car.getCarName()));
         }
     }
 
-    public static RacingCars of(List<Car> cars) {
-        return new RacingCars(cars);
+    public static RaceCars of(List<Car> cars) {
+        return new RaceCars(cars);
     }
 
     public NaturalNumber getCarCount() {
@@ -34,7 +34,7 @@ public class RacingCars {
         }
     }
 
-    public RacingResult getDriveRecords() {
-        return new RacingResult(new ArrayList<>(this.carRecord.values()));
+    public RaceResult getDriveRecords() {
+        return new RaceResult(new ArrayList<>(this.carRecord.values()));
     }
 }

@@ -22,7 +22,7 @@ class RaceResultTest {
                 new DriveRecord(new CarName(UserString.of("car1")), new CarPosition(10))
         );
 
-        RacingResult result = new RacingResult(driveRecords);
+        RaceResult result = new RaceResult(driveRecords);
 
         List<DriveRecord> winners = result.getWinner();
 
@@ -41,7 +41,7 @@ class RaceResultTest {
                 new DriveRecord(new CarName(UserString.of("car1")), new CarPosition(10))
         );
 
-        RacingResult result = new RacingResult(driveRecords);
+        RaceResult result = new RaceResult(driveRecords);
 
         List<DriveRecord> winners = result.getWinner();
 

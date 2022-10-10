@@ -8,8 +8,8 @@ public class BasicBillBoard implements BillBoard {
     }
 
     @Override
-    public void showRace(RacingCarViews currentView) {
-        for (RacingCarView carView : currentView) {
+    public void showRace(RaceCarViews currentView) {
+        for (RaceCarView carView : currentView) {
             this.userOutput.show(carView.toString());
         }
         this.userOutput.show("\n");

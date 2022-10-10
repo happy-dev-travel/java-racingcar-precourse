@@ -8,7 +8,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import racingcar.common.NaturalNumber;
 import racingcar.common.UserString;
-import racingcar.domain.RacingCars;
+import racingcar.domain.RaceCars;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -43,7 +43,7 @@ class RaceManagerTest {
     void test1() {
         given(userRequest.getCarNames()).willReturn(UserString.of("car1,car2"));
 
-        RacingCars cars = raceManager.readyCars();
+        RaceCars cars = raceManager.readyCars();
 
         assertThat(cars.getCarCount().isSame(NaturalNumber.of(2))).isTrue();
     }

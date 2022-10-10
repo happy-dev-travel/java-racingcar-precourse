@@ -15,15 +15,14 @@ import static org.mockito.Mockito.mockStatic;
 
 class RacingCarsTest {
 
-    private RacingGarage garage;
-    private RacingCars racingCars;
+    private RaceCars racingCars;
 
     @BeforeEach
     void setUp() {
-        garage = new RacingGarage();
+        RaceGarage garage = new RaceGarage();
         racingCars = garage.createCars(UserString.of("car1,car2,car3"));
     }
-    
+
     @Test
     @DisplayName("3개의 결과가 반환됨")
     void test1() {
@@ -32,7 +31,7 @@ class RacingCarsTest {
             racingCars.raceOneTime();
         }
 
-        RacingResult records = racingCars.getDriveRecords();
+        RaceResult records = racingCars.getDriveRecords();
 
         assertThat(records.getRecordSize().isSame(new NaturalNumber(3))).isTrue();
     }

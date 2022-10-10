@@ -10,7 +10,6 @@ import racingcar.common.UserString;
 import java.util.Arrays;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.verify;
 
 class BasicBillBoardTest {
@@ -34,7 +33,7 @@ class BasicBillBoardTest {
     void test1() {
         WinnerRacingCarViews views = WinnerRacingCarViews.of(
                 Arrays.asList(
-                        RacingCarView.of(UserString.of("car1"), NaturalNumber.of(10))
+                        RaceCarView.of(UserString.of("car1"), NaturalNumber.of(10))
                 )
         );
 

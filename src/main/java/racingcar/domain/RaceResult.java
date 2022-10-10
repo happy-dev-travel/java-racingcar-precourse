@@ -4,10 +4,10 @@ import racingcar.common.NaturalNumber;
 
 import java.util.*;
 
-public class RacingResult implements Iterable<DriveRecord> {
+public class RaceResult implements Iterable<DriveRecord> {
     private final List<DriveRecord> records;
 
-    public RacingResult(List<DriveRecord> records) {
+    public RaceResult(List<DriveRecord> records) {
         this.records = records;
     }
 

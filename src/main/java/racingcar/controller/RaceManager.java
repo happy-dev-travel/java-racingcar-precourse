@@ -2,25 +2,25 @@ package racingcar.controller;
 
 import racingcar.common.NaturalNumber;
 import racingcar.common.UserString;
-import racingcar.domain.RacingCars;
-import racingcar.domain.RacingGarage;
+import racingcar.domain.RaceCars;
+import racingcar.domain.RaceGarage;
 
 import java.util.Objects;
 
 public class RaceManager {
     private final UserInput userRequest;
-    private final RacingGarage garage;
-    private RacingCars racingCars;
+    private final RaceGarage garage;
+    private RaceCars racingCars;
     private NaturalNumber raceCount;
 
     public RaceManager(UserInput userRequest) {
         this.userRequest = userRequest;
-        this.garage = new RacingGarage();
+        this.garage = new RaceGarage();
         this.racingCars = null;
         this.raceCount = null;
     }
 
-    public RacingCars readyCars() {
+    public RaceCars readyCars() {
         while (Objects.isNull(this.racingCars)) {
             handleUserCarNames();
         }

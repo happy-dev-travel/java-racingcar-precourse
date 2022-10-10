@@ -13,11 +13,11 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class RacingGarageTest {
 
-    private RacingGarage garage;
+    private RaceGarage garage;
 
     @BeforeEach
     void setUp() {
-        garage = new RacingGarage();
+        garage = new RaceGarage();
     }
 
     @Test
@@ -43,7 +43,7 @@ class RacingGarageTest {
     @Test
     @DisplayName("이름이 하나일 때도 정상적으로 생성됨")
     void test3() {
-        RacingCars car1 = garage.createCars(UserString.of("car1"));
+        RaceCars car1 = garage.createCars(UserString.of("car1"));
 
         assertThat(car1.getCarCount().isSame(NaturalNumber.of(1))).isTrue();
     }
@@ -57,7 +57,7 @@ class RacingGarageTest {
     @Test
     @DisplayName("이름의 목록을 입력받아 경주 자동차들의 일급컬렉션인 RacingCars를 반환")
     void test1() {
-        RacingCars racingCars = garage.createCars(UserString.of("car1,car2,car3"));
+        RaceCars racingCars = garage.createCars(UserString.of("car1,car2,car3"));
 
         assertThat(racingCars.getCarCount().isSame(NaturalNumber.of(3))).isTrue();
     }

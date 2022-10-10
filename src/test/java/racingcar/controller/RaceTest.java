@@ -8,7 +8,7 @@ import org.mockito.MockitoAnnotations;
 import racingcar.common.NaturalNumber;
 import racingcar.common.UserString;
 import racingcar.domain.Car;
-import racingcar.domain.RacingCars;
+import racingcar.domain.RaceCars;
 import racingcar.view.BillBoard;
 
 import java.util.Arrays;
@@ -30,7 +30,7 @@ class RaceTest {
     @Test
     @DisplayName("Race가 시작되고, 5번의 출력이 실행되어야 함")
     void test1() {
-        RacingCars cars = RacingCars.of(Arrays.asList(
+        RaceCars cars = RaceCars.of(Arrays.asList(
                 Car.of(UserString.of("car1")),
                 Car.of(UserString.of("car2"))
         ));
