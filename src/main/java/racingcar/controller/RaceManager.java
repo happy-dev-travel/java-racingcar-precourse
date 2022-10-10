@@ -8,12 +8,12 @@ import racingcar.domain.RacingGarage;
 import java.util.Objects;
 
 public class RaceManager {
-    private final UserRequest userRequest;
+    private final UserInput userRequest;
     private final RacingGarage garage;
     private RacingCars racingCars;
     private NaturalNumber raceCount;
 
-    public RaceManager(UserRequest userRequest) {
+    public RaceManager(UserInput userRequest) {
         this.userRequest = userRequest;
         this.garage = new RacingGarage();
         this.racingCars = null;

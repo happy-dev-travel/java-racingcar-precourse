@@ -3,8 +3,6 @@ package racingcar.controller;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
@@ -20,7 +18,7 @@ import static org.mockito.BDDMockito.given;
 class RaceManagerTest {
 
     @Mock
-    private UserRequest userRequest;
+    private UserInput userRequest;
 
     @InjectMocks
     private RaceManager raceManager;

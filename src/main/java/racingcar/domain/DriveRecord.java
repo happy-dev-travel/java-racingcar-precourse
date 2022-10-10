@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import racingcar.common.NaturalNumber;
+import racingcar.common.UserString;
 import racingcar.constant.Move;
 
 public class DriveRecord implements Comparable<DriveRecord> {
@@ -30,16 +31,20 @@ public class DriveRecord implements Comparable<DriveRecord> {
         return new NaturalNumber(this.position.getPosition());
     }
 
-    @Override
-    public int compareTo(DriveRecord o) {
-        return this.getPosition().get() - o.getPosition().get();
+    public UserString getName() {
+        return UserString.of(carName.toString());
+    }
+
+    public boolean hasName(CarName car1) {
+        return this.carName.equals(car1);
     }
 
     public DriveRecord copy() {
         return new DriveRecord(this.carName, CarPosition.of(this.position.getPosition()));
     }
 
-    public boolean hasName(CarName car1) {
-        return this.carName.equals(car1);
+    @Override
+    public int compareTo(DriveRecord o) {
+        return this.getPosition().get() - o.getPosition().get();
     }
 }

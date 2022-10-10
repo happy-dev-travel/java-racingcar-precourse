@@ -1,9 +1,8 @@
 package racingcar.controller;
 
-import racingcar.common.NaturalNumber;
 import racingcar.common.UserString;
 
-public interface UserRequest {
+public interface UserInput {
     UserString getCarNames();
 
     UserString getRaceCount();

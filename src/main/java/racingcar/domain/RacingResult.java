@@ -4,7 +4,7 @@ import racingcar.common.NaturalNumber;
 
 import java.util.*;
 
-public class RacingResult {
+public class RacingResult implements Iterable<DriveRecord> {
     private final List<DriveRecord> records;
 
     public RacingResult(List<DriveRecord> records) {
@@ -39,5 +39,10 @@ public class RacingResult {
         if (record.isAt(winnerPosition)) {
             winnerRecords.add(record.copy());
         }
+    }
+
+    @Override
+    public Iterator<DriveRecord> iterator() {
+        return records.iterator();
     }
 }
