@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import racingcar.common.NaturalNumber;
 import racingcar.constant.AccelRange;
 
 public class AccelValue {
@@ -36,7 +37,15 @@ public class AccelValue {
         }
     }
 
-    public Integer get() {
-        return accel;
+    public NaturalNumber get() {
+        return NaturalNumber.of(this.accel);
+    }
+
+    public boolean isLowerThan(int minForwardAccel) {
+        return this.accel < minForwardAccel;
+    }
+
+    public boolean isEqualOrGreaterThan(int minForwardAccel) {
+        return this.accel >= minForwardAccel;
     }
 }

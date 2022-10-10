@@ -14,7 +14,7 @@ class RacingCarViewTest {
     void test2() {
         RaceCarView car1 = RaceCarView.of(UserString.of("car1"), NaturalNumber.of(0));
 
-        assertThat(car1.toString()).isEqualTo("car1:");
+        assertThat(car1.toString()).isEqualTo("car1 : ");
     }
 
     @Test
@@ -22,6 +22,6 @@ class RacingCarViewTest {
     void test1() {
         RaceCarView car1 = RaceCarView.of(UserString.of("car1"), NaturalNumber.of(5));
 
-        assertThat(car1.toString()).isEqualTo("car1:-----");
+        assertThat(car1.toString()).isEqualTo("car1 : -----");
     }
 }

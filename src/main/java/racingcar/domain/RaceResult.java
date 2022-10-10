@@ -16,18 +16,27 @@ public class RaceResult implements Iterable<DriveRecord> {
     }
 
     public List<DriveRecord> getWinner() {
-        Collections.sort(records);
-        Collections.reverse(records);
         NaturalNumber winnerPosition = getWinnerPosition();
-        return filterWinners(winnerPosition);
+        return filterWinnersBy(winnerPosition);
     }
 
     private NaturalNumber getWinnerPosition() {
-        final int winnerElementIndex = 0;
-        return records.get(winnerElementIndex).getPosition();
+        NaturalNumber maxPosition = NaturalNumber.of(0);
+        for (int i = 0; i < this.records.size(); i++) {
+            maxPosition = findMaxPosition(maxPosition, i);
+        }
+        return maxPosition;
     }
 
-    private List<DriveRecord> filterWinners(NaturalNumber winnerPosition) {
+    private NaturalNumber findMaxPosition(NaturalNumber maxPosition, int i) {
+        DriveRecord record = this.records.get(i);
+        if (record.isGreaterThan(maxPosition)) {
+            maxPosition = record.getCarPosition();
+        }
+        return maxPosition;
+    }
+
+    private List<DriveRecord> filterWinnersBy(NaturalNumber winnerPosition) {
         List<DriveRecord> winnerRecord = new ArrayList<>();
         for (DriveRecord record : records) {
             addWinners(winnerPosition, record, winnerRecord);

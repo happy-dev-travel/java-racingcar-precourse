@@ -1,5 +1,7 @@
 package racingcar.common;
 
+import java.util.Objects;
+
 public class NaturalNumber {
     private final int number;
 
@@ -26,7 +28,15 @@ public class NaturalNumber {
         return new NaturalNumber(this.get() + number.get());
     }
 
+
     public int get() {
         return this.number;
+    }
+
+    public boolean isGreaterThan(NaturalNumber number) {
+        if (Objects.isNull(number))
+            return false;
+
+        return this.get() > number.get();
     }
 }

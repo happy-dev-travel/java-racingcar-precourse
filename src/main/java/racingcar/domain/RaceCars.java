@@ -3,19 +3,14 @@ package racingcar.domain;
 import racingcar.common.NaturalNumber;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class RaceCars {
 
-    private final Map<Car, DriveRecord> carRecord;
+    private final List<Car> raceCars;
 
     private RaceCars(List<Car> cars) {
-        carRecord = new HashMap<>();
-        for (Car car : cars) {
-            carRecord.put(car, new DriveRecord(car.getCarName()));
-        }
+        this.raceCars = cars;
     }
 
     public static RaceCars of(List<Car> cars) {
@@ -23,18 +18,20 @@ public class RaceCars {
     }
 
     public NaturalNumber getCarCount() {
-        return NaturalNumber.of(this.carRecord.size());
+        return NaturalNumber.of(this.raceCars.size());
     }
 
     public void raceOneTime() {
-        for (Map.Entry<Car, DriveRecord> entry : carRecord.entrySet()) {
-            Car car = entry.getKey();
-            DriveRecord driveRecord = entry.getValue();
-            driveRecord.record(car.drive());
+        for (Car car : raceCars) {
+            car.drive();
         }
     }
-
+    
     public RaceResult getDriveRecords() {
-        return new RaceResult(new ArrayList<>(this.carRecord.values()));
+        List<DriveRecord> driveRecords = new ArrayList<>();
+        for (Car car : raceCars) {
+            driveRecords.add(new DriveRecord(car.getCarName(), car.getCarPosition()));
+        }
+        return new RaceResult(driveRecords);
     }
 }

@@ -25,6 +25,16 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    void 이름에_대한_예외_처리() {
+        assertSimpleTest(
+                () -> {
+                    runException("pobi,javaji");
+                    assertThat(output()).contains(ERROR_MESSAGE);
+                }
+        );
+    }
+
+    @Test
     void 전진_전진() {
         assertRandomNumberInRangeTest(
                 () -> {
@@ -36,12 +46,13 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 이름에_대한_예외_처리() {
-        assertSimpleTest(
+    void 정지_정지() {
+        assertRandomNumberInRangeTest(
                 () -> {
-                    runException("pobi,javaji");
-                    assertThat(output()).contains(ERROR_MESSAGE);
-                }
+                    run("pobi,woni", "1");
+                    assertThat(output()).contains("pobi : ", "woni : ", "최종 우승자 : pobi,woni");
+                },
+                STOP, STOP
         );
     }
 

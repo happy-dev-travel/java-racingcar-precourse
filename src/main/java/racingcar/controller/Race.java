@@ -47,7 +47,7 @@ public class Race {
     private WinnerRacingCarViews transWinnerToView(RaceResult result) {
         List<RaceCarView> views = new ArrayList<>();
         for (DriveRecord record : result.getWinner()) {
-            views.add(RaceCarView.of(record.getName(), record.getPosition()));
+            views.add(RaceCarView.of(record.getName(), record.getCarPosition()));
         }
         return WinnerRacingCarViews.of(views);
     }
@@ -55,7 +55,7 @@ public class Race {
     private RaceCarViews transResultToView(RaceResult currentResult) {
         List<RaceCarView> views = new ArrayList<>();
         for (DriveRecord record : currentResult) {
-            views.add(RaceCarView.of(record.getName(), record.getPosition()));
+            views.add(RaceCarView.of(record.getName(), record.getCarPosition()));
         }
         return RaceCarViews.of(views);
     }

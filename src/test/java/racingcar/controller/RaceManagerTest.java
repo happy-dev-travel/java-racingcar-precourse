@@ -9,6 +9,7 @@ import org.mockito.MockitoAnnotations;
 import racingcar.common.NaturalNumber;
 import racingcar.common.UserString;
 import racingcar.domain.RaceCars;
+import racingcar.view.BillBoard;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -19,6 +20,9 @@ class RaceManagerTest {
 
     @Mock
     private UserInput userRequest;
+
+    @Mock
+    private BillBoard billBoard;
 
     @InjectMocks
     private RaceManager raceManager;

@@ -3,14 +3,12 @@ package racingcar.domain;
 import camp.nextstep.edu.missionutils.Randoms;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.condition.EnabledIf;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.MockedStatic;
+import racingcar.common.NaturalNumber;
 import racingcar.common.UserString;
 import racingcar.constant.AccelRange;
-import racingcar.constant.Move;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
@@ -33,9 +31,9 @@ class CarTest {
         try (MockedStatic<Randoms> random = mockStatic(Randoms.class)) {
             given(Randoms.pickNumberInRange(AccelRange.MIN_ACCEL_VALUE, AccelRange.MAX_ACCEL_VALUE)).willReturn(accel);
 
-            Move move = car.drive();
+            car.drive();
 
-            assertThat(move).isEqualTo(Move.FORWARD);
+            assertTrue(car.getCarPosition().isSame(NaturalNumber.of(1)));
         }
     }
 
@@ -46,9 +44,9 @@ class CarTest {
         try (MockedStatic<Randoms> random = mockStatic(Randoms.class)) {
             given(Randoms.pickNumberInRange(AccelRange.MIN_ACCEL_VALUE, AccelRange.MAX_ACCEL_VALUE)).willReturn(accel);
 
-            Move move = car.drive();
+            car.drive();
 
-            assertThat(move).isEqualTo(Move.STOP);
+            assertTrue(car.getCarPosition().isSame(NaturalNumber.of(0)));
         }
     }
 }
