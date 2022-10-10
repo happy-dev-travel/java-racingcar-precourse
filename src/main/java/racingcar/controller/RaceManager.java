@@ -14,7 +14,12 @@ public class RaceManager {
     }
 
     public RacingCars readyCars() {
-        UserString userCarNames = userRequest.getCarNames();
-        return this.garage.createCars(userCarNames);
+        try {
+            UserString userCarNames = userRequest.getCarNames();
+            return this.garage.createCars(userCarNames);
+        } catch (IllegalArgumentException ex) {
+            //view에 exception 보여주기
+            return readyCars();
+        }
     }
 }
