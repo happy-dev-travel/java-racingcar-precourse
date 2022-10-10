@@ -31,23 +31,6 @@ class RaceManagerTest {
     }
 
     @Test
-    @DisplayName("사용자가 레이스 횟수에 음수를 입력하면 IllegalArgumentException이 발생함")
-    void test4() {
-        given(userRequest.getRaceCount()).willReturn(UserString.of("-1"));
-
-        assertThatThrownBy(() -> raceManager.getRaceCount()).isInstanceOf(IllegalArgumentException.class);
-    }
-
-    @ParameterizedTest
-    @ValueSource(strings = {"", " ", "a"})
-    @DisplayName("사용자가 레이스 횟수에 문자 혹은 공백을 입력하면 IllegalArgumentException이 발생함")
-    void test3() {
-        given(userRequest.getRaceCount()).willReturn(UserString.of("a"));
-
-        assertThatThrownBy(() -> raceManager.getRaceCount()).isInstanceOf(IllegalArgumentException.class);
-    }
-
-    @Test
     @DisplayName("사용자는 레이스 횟수를 입력할 수 있음")
     void test2() {
         given(userRequest.getRaceCount()).willReturn(UserString.of("1"));

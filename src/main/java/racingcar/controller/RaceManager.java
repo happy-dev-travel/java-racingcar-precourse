@@ -5,28 +5,51 @@ import racingcar.common.UserString;
 import racingcar.domain.RacingCars;
 import racingcar.domain.RacingGarage;
 
+import java.util.Objects;
+
 public class RaceManager {
-    private UserRequest userRequest;
-    private RacingGarage garage;
+    private final UserRequest userRequest;
+    private final RacingGarage garage;
+    private RacingCars racingCars;
+    private NaturalNumber raceCount;
 
     public RaceManager(UserRequest userRequest) {
         this.userRequest = userRequest;
         this.garage = new RacingGarage();
+        this.racingCars = null;
+        this.raceCount = null;
     }
 
     public RacingCars readyCars() {
+        while (Objects.isNull(this.racingCars)) {
+            handleUserCarNames();
+        }
+        return this.racingCars;
+    }
+
+    private void handleUserCarNames() {
         try {
             UserString userCarNames = userRequest.getCarNames();
-            return this.garage.createCars(userCarNames);
+            this.racingCars = this.garage.createCars(userCarNames);
         } catch (IllegalArgumentException ex) {
             //view에 exception 보여주기
-            return readyCars();
         }
     }
 
     public NaturalNumber getRaceCount() {
-        UserString raceCount = userRequest.getRaceCount();
-        return NaturalNumber.of(parseString(raceCount));
+        while (Objects.isNull(raceCount)) {
+            handleUserRaceCount();
+        }
+        return this.raceCount;
+    }
+
+    private void handleUserRaceCount() {
+        try {
+            UserString raceCount = userRequest.getRaceCount();
+            this.raceCount = NaturalNumber.of(parseString(raceCount));
+        } catch (IllegalArgumentException ex) {
+            //view 에 exception 보여주기
+        }
     }
 
     private int parseString(UserString input) {
