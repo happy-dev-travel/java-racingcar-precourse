@@ -2,8 +2,6 @@ package racingcar.view;
 
 import racingcar.common.ErrorMessage;
 
-import java.security.SecureRandom;
-
 public class BasicBillBoard implements BillBoard {
     private final UserOutput userOutput;
 
@@ -23,6 +21,7 @@ public class BasicBillBoard implements BillBoard {
 
     @Override
     public void showResultHeader() {
+        this.userOutput.show("");
         this.userOutput.show(BillBoardMessages.RACE_RESULT_HEADER);
     }
 

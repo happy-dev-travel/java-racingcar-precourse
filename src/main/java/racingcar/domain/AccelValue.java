@@ -2,9 +2,10 @@ package racingcar.domain;
 
 import racingcar.common.NaturalNumber;
 import racingcar.constant.AccelRange;
+import racingcar.constant.ErrorConstants;
 
 public class AccelValue {
-    private static final String ERROR_ACCEL_IS_NOT_IN_RANGE = "accel 값이 설정 범위를 벗어났습니다";
+
     private final int accel;
 
     private AccelValue(int accel) {
@@ -28,7 +29,7 @@ public class AccelValue {
     }
 
     private static String getNotInRangeErrorMessage() {
-        return String.format("%s(%s~%s)", ERROR_ACCEL_IS_NOT_IN_RANGE, AccelRange.MIN_ACCEL_VALUE, AccelRange.MAX_ACCEL_VALUE);
+        return String.format("%s(%s~%s)", ErrorConstants.ERROR_ACCEL_IS_NOT_IN_RANGE, AccelRange.MIN_ACCEL_VALUE, AccelRange.MAX_ACCEL_VALUE);
     }
 
     private static void isNull(Integer accel) {

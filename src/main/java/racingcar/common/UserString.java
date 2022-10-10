@@ -1,17 +1,18 @@
 package racingcar.common;
 
 import org.junit.platform.commons.util.StringUtils;
+import racingcar.constant.ErrorConstants;
 
 import java.util.Objects;
 
 public class UserString {
-    private static final String ERROR_USER_INPUT_BLANK = "비어있는 문자를 입력할 수 없습니다";
+
     private static final String delimiter = ",";
     private final String userInput;
 
     public UserString(String userInput) {
         validate(userInput);
-        this.userInput = userInput;
+        this.userInput = userInput.trim();
     }
 
     public static UserString of(String s) {
@@ -20,7 +21,7 @@ public class UserString {
 
     private void validate(String userInput) {
         if (StringUtils.isBlank(userInput)) {
-            throw new IllegalArgumentException(ERROR_USER_INPUT_BLANK);
+            throw new IllegalArgumentException(ErrorConstants.ERROR_USER_INPUT_BLANK);
         }
     }
 
@@ -44,14 +45,19 @@ public class UserString {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        UserString that = (UserString) o;
-        return Objects.equals(userInput, that.userInput);
+        if (!(o instanceof UserString))
+            return false;
+
+        UserString userString = (UserString) o;
+        return this.userInput.equals(userString.userInput);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(userInput);
+    }
+
+    public char charAt(int i) {
+        return this.userInput.charAt(i);
     }
 }

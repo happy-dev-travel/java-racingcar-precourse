@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 public class Engine {
+    
     private static final int MIN_FORWARD_ACCEL = 4;
 
     public Move accel(AccelValue accelValue) {

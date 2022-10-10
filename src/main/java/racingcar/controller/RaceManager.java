@@ -3,6 +3,7 @@ package racingcar.controller;
 import racingcar.common.ErrorMessage;
 import racingcar.common.NaturalNumber;
 import racingcar.common.UserString;
+import racingcar.constant.ErrorConstants;
 import racingcar.domain.RaceCars;
 import racingcar.domain.RaceGarage;
 import racingcar.view.BillBoard;
@@ -10,7 +11,7 @@ import racingcar.view.BillBoard;
 import java.util.Objects;
 
 public class RaceManager {
-    private static final String ERROR_USER_INPUT_WRONG_COUNT = "레이스 횟수는 0이상의 숫자를 입력해 주세요";
+
     private final UserInput userRequest;
     private final BillBoard billBoard;
     private final RaceGarage garage;
@@ -63,7 +64,7 @@ public class RaceManager {
         try {
             return Integer.parseInt(input.toString());
         } catch (NumberFormatException ex) {
-            throw new IllegalArgumentException(ERROR_USER_INPUT_WRONG_COUNT);
+            throw new IllegalArgumentException(ErrorConstants.ERROR_USER_INPUT_WRONG_COUNT);
         }
     }
 }

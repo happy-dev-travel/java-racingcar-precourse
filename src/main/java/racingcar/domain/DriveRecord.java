@@ -4,6 +4,7 @@ import racingcar.common.NaturalNumber;
 import racingcar.common.UserString;
 
 public class DriveRecord {
+    
     private final CarName carName;
     private final NaturalNumber carPosition;
 

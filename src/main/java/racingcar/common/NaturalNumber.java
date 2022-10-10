@@ -1,5 +1,7 @@
 package racingcar.common;
 
+import racingcar.constant.ErrorConstants;
+
 import java.util.Objects;
 
 public class NaturalNumber {
@@ -16,7 +18,7 @@ public class NaturalNumber {
 
     private void validate(int number) {
         if (number < 0) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ErrorConstants.ERROR_NUMBER_IS_NEGATIVE);
         }
     }
 
