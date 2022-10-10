@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import racingcar.common.PositiveNumber;
+import racingcar.common.NaturalNumber;
 import racingcar.constant.Move;
 
 public class DriveRecord implements Comparable<DriveRecord> {
@@ -22,12 +22,12 @@ public class DriveRecord implements Comparable<DriveRecord> {
         }
     }
 
-    public boolean isAt(PositiveNumber position) {
+    public boolean isAt(NaturalNumber position) {
         return this.position.isAt(CarPosition.of(position.get()));
     }
 
-    public PositiveNumber getPosition() {
-        return new PositiveNumber(this.position.getPosition());
+    public NaturalNumber getPosition() {
+        return new NaturalNumber(this.position.getPosition());
     }
 
     @Override
@@ -40,6 +40,6 @@ public class DriveRecord implements Comparable<DriveRecord> {
     }
 
     public boolean hasName(CarName car1) {
-        return this.carName.isSame(car1);
+        return this.carName.equals(car1);
     }
 }

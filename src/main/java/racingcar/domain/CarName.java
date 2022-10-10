@@ -1,34 +1,26 @@
 package racingcar.domain;
 
-
-import org.junit.platform.commons.util.StringUtils;
+import racingcar.common.UserString;
 
 public class CarName {
 
     private final static int MAX_NAME_LENGTH = 5;
-    private final String carName;
+    private final UserString carName;
 
-    public CarName(String carName) {
+    public CarName(UserString carName) {
         validate(carName);
         this.carName = carName;
     }
 
-    public static CarName of(String name) {
+    public static CarName of(UserString name) {
         return new CarName(name);
     }
 
-    private void validate(String carName) {
-        isBlank(carName);
+    private void validate(UserString carName) {
         isOverMaxLength(carName);
     }
 
-    private void isBlank(String carName) {
-        if (StringUtils.isBlank(carName)) {
-            throw new IllegalArgumentException();
-        }
-    }
-
-    private void isOverMaxLength(String carName) {
+    private void isOverMaxLength(UserString carName) {
         if (carName.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException();
         }
@@ -36,10 +28,15 @@ public class CarName {
 
     @Override
     public String toString() {
-        return this.carName;
+        return this.carName.toString();
     }
 
-    public boolean isSame(CarName car1) {
-        return this.carName.equals(car1.toString());
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof CarName)) {
+            return false;
+        }
+        CarName obj1 = (CarName) obj;
+        return this.toString().equals(obj1.toString());
     }
 }

@@ -1,15 +1,15 @@
 package racingcar.common;
 
-public class PositiveNumber {
+public class NaturalNumber {
     private final int number;
 
-    public PositiveNumber(int number) {
+    public NaturalNumber(int number) {
         validate(number);
         this.number = number;
     }
 
-    public static PositiveNumber of(int number) {
-        return new PositiveNumber(number);
+    public static NaturalNumber of(int number) {
+        return new NaturalNumber(number);
     }
 
     private void validate(int number) {
@@ -18,12 +18,12 @@ public class PositiveNumber {
         }
     }
 
-    public boolean isSame(PositiveNumber number) {
+    public boolean isSame(NaturalNumber number) {
         return this.get() == number.get();
     }
 
-    public PositiveNumber plus(PositiveNumber number) {
-        return new PositiveNumber(this.get() + number.get());
+    public NaturalNumber plus(NaturalNumber number) {
+        return new NaturalNumber(this.get() + number.get());
     }
 
     public int get() {

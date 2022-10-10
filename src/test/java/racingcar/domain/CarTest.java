@@ -8,6 +8,7 @@ import org.junit.jupiter.api.condition.EnabledIf;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.MockedStatic;
+import racingcar.common.UserString;
 import racingcar.constant.AccelRange;
 import racingcar.constant.Move;
 
@@ -22,7 +23,7 @@ class CarTest {
 
     @BeforeEach
     void setUp() {
-        car = Car.of("test");
+        car = Car.of(UserString.of("test"));
     }
 
     @ParameterizedTest

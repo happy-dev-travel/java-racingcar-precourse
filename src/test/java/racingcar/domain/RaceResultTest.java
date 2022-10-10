@@ -2,14 +2,13 @@ package racingcar.domain;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.common.PositiveNumber;
+import racingcar.common.NaturalNumber;
+import racingcar.common.UserString;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.as;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class RaceResultTest {
 
@@ -18,18 +17,18 @@ class RaceResultTest {
     void test2() {
 
         List<DriveRecord> driveRecords = Arrays.asList(
-                new DriveRecord(new CarName("car2"), new CarPosition(10)),
-                new DriveRecord(new CarName("car3"), new CarPosition(1)),
-                new DriveRecord(new CarName("car1"), new CarPosition(10))
+                new DriveRecord(new CarName(UserString.of("car2")), new CarPosition(10)),
+                new DriveRecord(new CarName(UserString.of("car3")), new CarPosition(1)),
+                new DriveRecord(new CarName(UserString.of("car1")), new CarPosition(10))
         );
 
-        RaceResult result = new RaceResult(driveRecords);
+        RacingResult result = new RacingResult(driveRecords);
 
         List<DriveRecord> winners = result.getWinner();
 
         assertThat(winners.size()).isEqualTo(2);
-        assertThat(winners.get(0).isAt(PositiveNumber.of(10))).isTrue();
-        assertThat(winners.get(0).hasName(CarName.of("car1")) || winners.get(0).hasName(CarName.of("car2"))).isTrue();
+        assertThat(winners.get(0).isAt(NaturalNumber.of(10))).isTrue();
+        assertThat(winners.get(0).hasName(CarName.of(UserString.of("car1"))) || winners.get(0).hasName(CarName.of(UserString.of("car2")))).isTrue();
     }
 
     @Test
@@ -37,17 +36,17 @@ class RaceResultTest {
     void test1() {
 
         List<DriveRecord> driveRecords = Arrays.asList(
-                new DriveRecord(new CarName("car2"), new CarPosition(8)),
-                new DriveRecord(new CarName("car3"), new CarPosition(1)),
-                new DriveRecord(new CarName("car1"), new CarPosition(10))
+                new DriveRecord(new CarName(UserString.of("car2")), new CarPosition(8)),
+                new DriveRecord(new CarName(UserString.of("car3")), new CarPosition(1)),
+                new DriveRecord(new CarName(UserString.of("car1")), new CarPosition(10))
         );
 
-        RaceResult result = new RaceResult(driveRecords);
+        RacingResult result = new RacingResult(driveRecords);
 
         List<DriveRecord> winners = result.getWinner();
 
         assertThat(winners.size()).isEqualTo(1);
-        assertThat(winners.get(0).isAt(PositiveNumber.of(10))).isTrue();
-        assertThat(winners.get(0).hasName(CarName.of("car1"))).isTrue();
+        assertThat(winners.get(0).isAt(NaturalNumber.of(10))).isTrue();
+        assertThat(winners.get(0).hasName(CarName.of(UserString.of("car1")))).isTrue();
     }
 }

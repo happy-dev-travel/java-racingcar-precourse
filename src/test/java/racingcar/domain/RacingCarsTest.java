@@ -5,7 +5,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
-import racingcar.common.PositiveNumber;
+import racingcar.common.NaturalNumber;
+import racingcar.common.UserString;
 import racingcar.constant.AccelRange;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -20,7 +21,7 @@ class RacingCarsTest {
     @BeforeEach
     void setUp() {
         garage = new RacingGarage();
-        racingCars = garage.prepareCars("car1,car2,car3");
+        racingCars = garage.createCars(UserString.of("car1,car2,car3"));
     }
     
     @Test
@@ -31,8 +32,8 @@ class RacingCarsTest {
             racingCars.raceOneTime();
         }
 
-        RaceResult records = racingCars.getDriveRecords();
+        RacingResult records = racingCars.getDriveRecords();
 
-        assertThat(records.getRecordSize().isSame(new PositiveNumber(3))).isTrue();
+        assertThat(records.getRecordSize().isSame(new NaturalNumber(3))).isTrue();
     }
 }

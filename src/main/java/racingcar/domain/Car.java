@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import racingcar.common.UserString;
 import racingcar.constant.Move;
 import racingcar.util.AccelGenerator;
 
@@ -13,7 +14,7 @@ public class Car {
         this.carName = carName;
     }
 
-    public static Car of(String carName) {
+    public static Car of(UserString carName) {
         return new Car(new Engine(), new CarName(carName));
     }
 

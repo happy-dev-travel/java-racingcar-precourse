@@ -32,7 +32,7 @@ public class RacingCars {
         }
     }
 
-    public RaceResult getDriveRecords() {
-        return new RaceResult(new ArrayList<>(this.carRecord.values()));
+    public RacingResult getDriveRecords() {
+        return new RacingResult(new ArrayList<>(this.carRecord.values()));
     }
 }
