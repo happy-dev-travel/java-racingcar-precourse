@@ -12,11 +12,11 @@ public class BasicBillBoard implements BillBoard {
         for (RaceCarView carView : currentView) {
             this.userOutput.show(carView.toString());
         }
-        this.userOutput.show("\n");
+        this.userOutput.show("");
     }
 
     @Override
     public void showWinner(WinnerRacingCarViews winnerViews) {
-        this.userOutput.show(String.format("최종 우승자:%s", winnerViews.getWinners()));
+        this.userOutput.show(String.format("최종 우승자 : %s", winnerViews.getWinners()));
     }
 }

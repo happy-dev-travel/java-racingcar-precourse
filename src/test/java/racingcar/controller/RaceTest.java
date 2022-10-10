@@ -35,7 +35,7 @@ class RaceTest {
                 Car.of(UserString.of("car2"))
         ));
         Race race = new Race(billBoard, cars, NaturalNumber.of(5));
-        race.start();
+        race.run();
 
         verify(billBoard, times(5)).showRace(any());
     }

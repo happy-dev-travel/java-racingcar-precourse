@@ -24,7 +24,7 @@ public class RaceCarView {
         for (int i = 0; i < this.position.get(); i++) {
             sb.append(raceMark);
         }
-        return String.format("%s:%s", this.name, sb);
+        return String.format("%s : %s", this.name, sb);
     }
 
     public String getName() {

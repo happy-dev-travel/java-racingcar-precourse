@@ -29,12 +29,7 @@ public class Race {
         finish();
     }
 
-    private void finish() {
-        WinnerRacingCarViews winnerViews = transWinnerToView(result);
-        this.billBoard.showWinner(winnerViews);
-    }
-
-    public void start() {
+    private void start() {
         for (int i = 0; i < raceCount.get(); i++) {
             cars.raceOneTime();
             result = cars.getDriveRecords();
@@ -43,9 +38,14 @@ public class Race {
         }
     }
 
+    private void finish() {
+        WinnerRacingCarViews winnerViews = transWinnerToView(result);
+        this.billBoard.showWinner(winnerViews);
+    }
+
     private WinnerRacingCarViews transWinnerToView(RaceResult result) {
         List<RaceCarView> views = new ArrayList<>();
-        for (DriveRecord record : result) {
+        for (DriveRecord record : result.getWinner()) {
             views.add(RaceCarView.of(record.getName(), record.getPosition()));
         }
         return WinnerRacingCarViews.of(views);
