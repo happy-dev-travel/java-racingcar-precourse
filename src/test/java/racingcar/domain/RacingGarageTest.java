@@ -5,6 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+import racingcar.common.NaturalNumber;
 import racingcar.common.UserString;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -17,6 +18,12 @@ class RacingGarageTest {
     @BeforeEach
     void setUp() {
         garage = new RacingGarage();
+    }
+
+    @Test
+    @DisplayName("중복된 이름이 전달될 경우 IllegalArgumentException이 발생함")
+    void test7() {
+        assertThatThrownBy(() -> garage.createCars(UserString.of("car1,car1"))).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
@@ -38,7 +45,7 @@ class RacingGarageTest {
     void test3() {
         RacingCars car1 = garage.createCars(UserString.of("car1"));
 
-        assertThat(car1.getCarCount()).isEqualTo(1);
+        assertThat(car1.getCarCount().isSame(NaturalNumber.of(1))).isTrue();
     }
 
     @Test
@@ -52,6 +59,6 @@ class RacingGarageTest {
     void test1() {
         RacingCars racingCars = garage.createCars(UserString.of("car1,car2,car3"));
 
-        assertThat(racingCars.getCarCount()).isEqualTo(3);
+        assertThat(racingCars.getCarCount().isSame(NaturalNumber.of(3))).isTrue();
     }
 }

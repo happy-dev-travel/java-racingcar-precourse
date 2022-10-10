@@ -2,6 +2,8 @@ package racingcar.common;
 
 import org.junit.platform.commons.util.StringUtils;
 
+import java.util.Objects;
+
 public class UserString {
     private static final String delimiter = ",";
     private final String userInput;
@@ -37,5 +39,18 @@ public class UserString {
     @Override
     public String toString() {
         return userInput;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserString that = (UserString) o;
+        return Objects.equals(userInput, that.userInput);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(userInput);
     }
 }

@@ -4,6 +4,8 @@ import org.junit.platform.commons.util.StringUtils;
 import racingcar.common.UserString;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 
 public class RacingGarage {
@@ -11,12 +13,19 @@ public class RacingGarage {
 
     public RacingCars createCars(UserString s) {
         UserString[] carNames = s.split();
-        validateCarNameCount(carNames);
+        validate(carNames);
         return RacingCars.of(getCars(carNames));
     }
 
-    private void validate(String s) {
+    private void validate(UserString[] carNames) {
+        validateCarNameCount(carNames);
+        validateDuplicateName(carNames);
+    }
 
+    private void validateDuplicateName(UserString[] carNames) {
+        if (carNames.length != new HashSet<>(Arrays.asList(carNames)).size()) {
+            throw new IllegalArgumentException();
+        }
     }
 
     private void validateCarNameCount(UserString[] carNames) {
