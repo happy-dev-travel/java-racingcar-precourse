@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 public class CarPosition {
+    private static final String ERROR_POSITION_IS_WRONG = "position 값은 음수일 수 없습니다";
     private int position;
 
     public CarPosition() {
@@ -14,7 +15,7 @@ public class CarPosition {
 
     private void validate(int initialPosition) {
         if (initialPosition < 0) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ERROR_POSITION_IS_WRONG);
         }
     }
 

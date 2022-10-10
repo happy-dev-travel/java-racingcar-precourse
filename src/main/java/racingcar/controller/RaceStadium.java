@@ -9,8 +9,8 @@ public class RaceStadium {
     private final BillBoard billBoard;
 
     public RaceStadium(UserInput userInput, BillBoard billBoard) {
-        this.raceManager = new RaceManager(userInput);
         this.billBoard = billBoard;
+        this.raceManager = new RaceManager(userInput, billBoard);
     }
 
     public void go() {

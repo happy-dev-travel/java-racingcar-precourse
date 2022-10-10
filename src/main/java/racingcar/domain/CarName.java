@@ -3,8 +3,8 @@ package racingcar.domain;
 import racingcar.common.UserString;
 
 public class CarName {
-
-    private final static int MAX_NAME_LENGTH = 5;
+    private static final String ERROR_CAR_NAME_IS_WRONG = "자동차 이름은 1~5자를 입력할 수 있습니다";
+    private static final int MAX_NAME_LENGTH = 5;
     private final UserString carName;
 
     public CarName(UserString carName) {
@@ -22,7 +22,7 @@ public class CarName {
 
     private void isOverMaxLength(UserString carName) {
         if (carName.length() > MAX_NAME_LENGTH) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ERROR_CAR_NAME_IS_WRONG);
         }
     }
 

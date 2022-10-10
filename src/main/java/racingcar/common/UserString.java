@@ -5,6 +5,7 @@ import org.junit.platform.commons.util.StringUtils;
 import java.util.Objects;
 
 public class UserString {
+    private static final String ERROR_USER_INPUT_BLANK = "비어있는 문자를 입력할 수 없습니다";
     private static final String delimiter = ",";
     private final String userInput;
 
@@ -19,7 +20,7 @@ public class UserString {
 
     private void validate(String userInput) {
         if (StringUtils.isBlank(userInput)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ERROR_USER_INPUT_BLANK);
         }
     }
 

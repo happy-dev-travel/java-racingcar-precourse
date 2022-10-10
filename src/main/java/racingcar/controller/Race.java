@@ -25,6 +25,7 @@ public class Race {
     }
 
     public void run() {
+        this.billBoard.showResultHeader();
         start();
         finish();
     }

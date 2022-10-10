@@ -1,10 +1,29 @@
 package racingcar.view;
 
+import racingcar.common.ErrorMessage;
+
+import java.security.SecureRandom;
+
 public class BasicBillBoard implements BillBoard {
     private final UserOutput userOutput;
 
     public BasicBillBoard(UserOutput userOutput) {
         this.userOutput = userOutput;
+    }
+
+    @Override
+    public void showRequestCarName() {
+        this.userOutput.show(BillBoardMessages.REQUEST_CAR_NAMES);
+    }
+
+    @Override
+    public void showRequestRaceCount() {
+        this.userOutput.show(BillBoardMessages.REQUEST_RACE_COUNT);
+    }
+
+    @Override
+    public void showResultHeader() {
+        this.userOutput.show(BillBoardMessages.RACE_RESULT_HEADER);
     }
 
     @Override
@@ -17,6 +36,11 @@ public class BasicBillBoard implements BillBoard {
 
     @Override
     public void showWinner(WinnerRacingCarViews winnerViews) {
-        this.userOutput.show(String.format("최종 우승자 : %s", winnerViews.getWinners()));
+        this.userOutput.show(String.format("%s%s", BillBoardMessages.RACE_WINNER_HEADER, winnerViews.getWinners()));
+    }
+
+    @Override
+    public void showErrorMessage(ErrorMessage message) {
+        this.userOutput.show(String.format("%s%s", BillBoardMessages.ERROR_HEADER, message));
     }
 }

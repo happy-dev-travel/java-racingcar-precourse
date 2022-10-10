@@ -8,6 +8,8 @@ import java.util.HashSet;
 import java.util.List;
 
 public class RaceGarage {
+    private static final String ERROR_CAR_NAME_DUPLICATED = "중복된 자동차 이름이 존재합니다";
+    private static final String ERROR_CAR_COUNT_IS_OVER_MAX_COUNT = "입력한 자동차 이름이 최대치를 넘었습니다:Max";
     private static final int MAX_CAR_COUNT = 20; //F1 2022시즌 출전 차량수 = 팀(10EA) * 2대 = 20대, https://namu.wiki/w/%ED%8F%AC%EB%AE%AC%EB%9F%AC%201
 
     public RaceCars createCars(UserString s) {
@@ -23,13 +25,13 @@ public class RaceGarage {
 
     private void validateDuplicateName(UserString[] carNames) {
         if (carNames.length != new HashSet<>(Arrays.asList(carNames)).size()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ERROR_CAR_NAME_DUPLICATED);
         }
     }
 
     private void validateCarNameCount(UserString[] carNames) {
         if (carNames.length > MAX_CAR_COUNT) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(String.format("%s%s", ERROR_CAR_COUNT_IS_OVER_MAX_COUNT, MAX_CAR_COUNT));
         }
     }
 
