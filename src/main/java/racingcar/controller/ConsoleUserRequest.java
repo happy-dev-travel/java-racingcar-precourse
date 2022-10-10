@@ -12,7 +12,9 @@ public class ConsoleUserRequest implements UserRequest {
     }
 
     @Override
-    public NaturalNumber getRaceCount() {
-        return null;
+    public UserString getRaceCount() {
+        return UserString.of(readLine());
     }
+
+
 }

@@ -6,5 +6,5 @@ import racingcar.common.UserString;
 public interface UserRequest {
     UserString getCarNames();
 
-    NaturalNumber getRaceCount();
+    UserString getRaceCount();
 }
